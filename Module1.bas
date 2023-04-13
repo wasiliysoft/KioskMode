@@ -1,21 +1,18 @@
 Attribute VB_Name = "Module1"
 Option Explicit
+Public Declare Function GetKeyboardLayout Lib "user32" (ByVal dwLayout As Long) As Long
 
-Public gPswd As String
-Public Const timeout = 60
+Public Const timeout = 600
 Public gTimeout As Long
 Public Const minPassLen = 10
 
-Sub loadConfig()
-    gPswd = Trim("2")
-End Sub
-Sub saveConfig()
-    MsgBox "не рализованно"
-End Sub
+
+
 Function logOn(ByVal pass As String) As Boolean
     logOn = False
     pass = Trim(pass)
-    If (gPswd = pass) Then
+
+    If (Trim(gConfig.pwd) = pass) Then
         logOn = True
     End If
 End Function
