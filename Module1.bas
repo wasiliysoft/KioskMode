@@ -2,7 +2,6 @@ Attribute VB_Name = "Module1"
 Option Explicit
 Public Declare Function GetKeyboardLayout Lib "user32" (ByVal dwLayout As Long) As Long
 
-Public Const timeout = 600
 Public gTimeout As Long
 Public Const minPassLen = 10
 

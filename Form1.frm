@@ -1,10 +1,10 @@
 VERSION 5.00
 Begin VB.Form Form1 
-   BorderStyle     =   0  'None
+   BorderStyle     =   1  'Fixed Single
    Caption         =   " ËÓÒÍ"
    ClientHeight    =   6135
-   ClientLeft      =   0
-   ClientTop       =   0
+   ClientLeft      =   45
+   ClientTop       =   435
    ClientWidth     =   4500
    ClipControls    =   0   'False
    ControlBox      =   0   'False
@@ -15,7 +15,6 @@ Begin VB.Form Form1
    Moveable        =   0   'False
    ScaleHeight     =   6135
    ScaleWidth      =   4500
-   ShowInTaskbar   =   0   'False
    StartUpPosition =   2  'CenterScreen
    Begin VB.CommandButton btnReboot 
       Caption         =   "œ≈–≈«¿√–”«»“‹"
@@ -26,7 +25,7 @@ Begin VB.Form Form1
       Width           =   3855
    End
    Begin VB.CommandButton btnLogoff 
-      Caption         =   "«¬≈–ÿ»“‹ —≈¿Õ—"
+      Caption         =   "«¿¬≈–ÿ»“‹ —≈¿Õ—"
       Height          =   615
       Left            =   360
       TabIndex        =   5
@@ -160,7 +159,7 @@ End Sub
 
 Private Sub Form_Load()
     load_Config
-    gTimeout = 15
+    gTimeout = gConfig.timeout_FirstLock
     updateLangIndicator
 End Sub
 
@@ -175,7 +174,7 @@ End Sub
 Private Sub onCorrectPass()
         Label2.Caption = ""
         txtPass.Text = ""
-        gTimeout = timeout
+        gTimeout = gConfig.timeout_ReLock
         Timer1.Enabled = True
 End Sub
 Private Sub onIncorrectPass()
@@ -201,6 +200,11 @@ End Sub
 
 Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
     updateLangIndicator
+    If ((KeyCode = vbKeyEnd) And (Shift = 6)) Then
+        If (isLocked = False) Then
+   '         Unload Me
+        End If
+    End If
 End Sub
 
 Private Sub Form_KeyUp(KeyCode As Integer, Shift As Integer)
