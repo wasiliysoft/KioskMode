@@ -138,7 +138,10 @@ End Sub
 
 Private Sub btnUnlock_Click()
     If (logOn) Then
-        Shell "explorer.exe"
+        ' Работает на WinXP но не работает на Win11 и вохмож
+        ' Shell "cmd /c explorer.exe"
+        
+        Shell Environ("windir") & "\explorer.exe"
     End If
 End Sub
 
@@ -154,7 +157,7 @@ End Sub
 Private Sub btnLogoff_Click()
     If (logOn) Then
         On Error Resume Next
-        Shell "shutdown -l -f -t 0"
+        Shell "shutdown /l /f"
         Shell "LOGOFF"
         On Error GoTo 0
     End If
