@@ -1,159 +1,208 @@
 VERSION 5.00
 Begin VB.Form frmChangePass 
    BorderStyle     =   3  'Fixed Dialog
-   Caption         =   "Смена пароля"
-   ClientHeight    =   4620
+   Caption         =   "Настройки"
+   ClientHeight    =   5865
    ClientLeft      =   2835
    ClientTop       =   3480
-   ClientWidth     =   7065
+   ClientWidth     =   8700
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   2729.648
+   ScaleHeight     =   3465.234
    ScaleMode       =   0  'User
-   ScaleWidth      =   6633.652
+   ScaleWidth      =   8168.828
    ShowInTaskbar   =   0   'False
    StartUpPosition =   2  'CenterScreen
-   Begin VB.TextBox txtNewPass2 
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   13.5
-         Charset         =   204
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   495
-      IMEMode         =   3  'DISABLE
-      Left            =   3600
-      MaxLength       =   16
-      PasswordChar    =   "*"
-      TabIndex        =   3
-      Top             =   1560
-      Width           =   3285
+   Begin VB.Frame Frame2 
+      Caption         =   "Настройка таймаутов"
+      Height          =   1935
+      Left            =   360
+      TabIndex        =   10
+      Top             =   2280
+      Width           =   8055
+      Begin VB.TextBox txtFirstLock 
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   13.5
+            Charset         =   204
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   495
+         IMEMode         =   3  'DISABLE
+         Left            =   3720
+         MaxLength       =   16
+         TabIndex        =   2
+         Top             =   360
+         Width           =   3285
+      End
+      Begin VB.TextBox txtReLock 
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   13.5
+            Charset         =   204
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   495
+         IMEMode         =   3  'DISABLE
+         Left            =   3720
+         MaxLength       =   16
+         TabIndex        =   3
+         Top             =   1080
+         Width           =   3285
+      End
+      Begin VB.Label lblLabels 
+         Caption         =   "Повторный (сек.)"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   13.5
+            Charset         =   204
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   390
+         Index           =   0
+         Left            =   240
+         TabIndex        =   12
+         Top             =   1200
+         Width           =   3570
+      End
+      Begin VB.Label lblLabels 
+         Caption         =   "Первичный (сек.)"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   13.5
+            Charset         =   204
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   390
+         Index           =   3
+         Left            =   240
+         TabIndex        =   11
+         Top             =   480
+         Width           =   3810
+      End
    End
-   Begin VB.TextBox txtNewPass1 
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   13.5
-         Charset         =   204
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   495
-      IMEMode         =   3  'DISABLE
-      Left            =   3600
-      MaxLength       =   16
-      PasswordChar    =   "*"
-      TabIndex        =   2
-      Top             =   960
-      Width           =   3285
+   Begin VB.Frame Frame1 
+      Caption         =   "Изменение пароля"
+      Height          =   1815
+      Left            =   360
+      TabIndex        =   6
+      Top             =   240
+      Width           =   8055
+      Begin VB.TextBox txtNewPass1 
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   13.5
+            Charset         =   204
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   495
+         IMEMode         =   3  'DISABLE
+         Left            =   3720
+         MaxLength       =   16
+         PasswordChar    =   "*"
+         TabIndex        =   0
+         Top             =   360
+         Width           =   3285
+      End
+      Begin VB.TextBox txtNewPass2 
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   13.5
+            Charset         =   204
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   495
+         IMEMode         =   3  'DISABLE
+         Left            =   3720
+         MaxLength       =   16
+         PasswordChar    =   "*"
+         TabIndex        =   1
+         Top             =   960
+         Width           =   3285
+      End
+      Begin VB.Label lblLabels 
+         Caption         =   "Новый пароль"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   13.5
+            Charset         =   204
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   390
+         Index           =   1
+         Left            =   240
+         TabIndex        =   9
+         Top             =   480
+         Width           =   2850
+      End
+      Begin VB.Label lblLabels 
+         Caption         =   "Подтверждение"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   13.5
+            Charset         =   204
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   390
+         Index           =   2
+         Left            =   240
+         TabIndex        =   8
+         Top             =   1080
+         Width           =   3330
+      End
+      Begin VB.Label LabelLang 
+         Caption         =   "LNG"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   13.5
+            Charset         =   204
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   7200
+         TabIndex        =   7
+         Top             =   480
+         Width           =   735
+      End
    End
    Begin VB.CommandButton cmdOK 
-      Caption         =   "ИЗМЕНИТЬ"
-      Default         =   -1  'True
-      Height          =   735
-      Left            =   120
-      TabIndex        =   4
-      Top             =   3000
-      Width           =   6780
-   End
-   Begin VB.TextBox txtOldPass 
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   13.5
-         Charset         =   204
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
+      Caption         =   "СОХРАНИТЬ"
       Height          =   495
-      IMEMode         =   3  'DISABLE
-      Left            =   3600
-      MaxLength       =   16
-      PasswordChar    =   "*"
-      TabIndex        =   1
-      Top             =   360
-      Width           =   3285
-   End
-   Begin VB.Label LabelLang 
-      Alignment       =   1  'Right Justify
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   13.5
-         Charset         =   204
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   375
-      Left            =   360
-      TabIndex        =   8
-      Top             =   3960
-      Width           =   6375
-   End
-   Begin VB.Label LabelError 
-      Alignment       =   2  'Center
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   13.5
-         Charset         =   204
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00000080&
-      Height          =   615
-      Left            =   120
-      TabIndex        =   7
-      Top             =   2280
-      Width           =   6735
-   End
-   Begin VB.Label lblLabels 
-      Caption         =   "Подтверждение пароля"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   13.5
-         Charset         =   204
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   390
-      Index           =   2
-      Left            =   120
-      TabIndex        =   6
-      Top             =   1560
-      Width           =   3330
-   End
-   Begin VB.Label lblLabels 
-      Caption         =   "Новый пароль"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   13.5
-         Charset         =   204
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   390
-      Index           =   1
-      Left            =   120
+      Left            =   6360
       TabIndex        =   5
-      Top             =   960
-      Width           =   2850
+      Top             =   5160
+      Width           =   2100
    End
-   Begin VB.Label lblLabels 
-      Caption         =   "Текущий пароль"
+   Begin VB.Label LabelMsg 
       BeginProperty Font 
          Name            =   "MS Sans Serif"
          Size            =   13.5
@@ -163,12 +212,12 @@ Begin VB.Form frmChangePass
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   390
-      Index           =   0
-      Left            =   120
-      TabIndex        =   0
-      Top             =   360
-      Width           =   2850
+      ForeColor       =   &H00000000&
+      Height          =   495
+      Left            =   360
+      TabIndex        =   4
+      Top             =   4440
+      Width           =   8055
    End
 End
 Attribute VB_Name = "frmChangePass"
@@ -178,45 +227,115 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
 
+Const minPassLen = 10
+
+Private Sub Form_Load()
+    updateLangIndicator
+    
+    txtFirstLock.Text = gConfig.timeout_FirstLock
+    txtReLock.Text = gConfig.timeout_ReLock
+End Sub
+
 Private Sub cmdOK_Click()
-    If (logOn(Trim(txtOldPass.Text))) Then
-            Dim newPass As String: newPass = Trim(txtNewPass1.Text)
-            If (passwordComplexityTest(newPass)) Then
-                If (newPass = Trim(txtNewPass2.Text)) Then
-                    gConfig.pwd = newPass
-                    save_Config
-                    load_Config
-                    LabelError.Caption = "Пароль успешно изменен"
-                Else
-                    LabelError.Caption = "Новый пароль и подтверждение не совпадают"
-                End If
+    Dim newPass As String: newPass = Trim(txtNewPass1.Text)
+    If (Len(newPass) > 0) Then
+        If (passwordComplexityTest(newPass)) Then
+            If (newPass = Trim(txtNewPass2.Text)) Then
+                gConfig.pwd = newPass
             Else
-                txtNewPass1.SetFocus
-                SendKeys "{Home}+{End}"
-                LabelError.Caption = "Новый пароль слишком простой"
+                txtNewPass2.Text = ""
+                txtNewPass2.SetFocus
+                LabelMsg.Caption = "Новый пароль и подтверждение не совпадают"
+                Exit Sub
             End If
-    Else
-        LabelError.Caption = "Неправильный текущий пароль"
-        txtOldPass.SetFocus
-        SendKeys "{Home}+{End}"
+        Else
+            txtNewPass1.SetFocus
+            LabelMsg.Caption = "Новый пароль слишком простой"
+            Exit Sub
+        End If
+    End If
+    
+    gConfig.timeout_FirstLock = Val(txtFirstLock.Text)
+    gConfig.timeout_ReLock = Val(txtReLock.Text)
+    
+    If (save_Config) Then
+        LabelMsg.Caption = "Настройки сохранены"
+        load_Config
     End If
 End Sub
 
+Function passwordComplexityTest(ByVal psw As String) As Boolean
 
-Private Sub updateLangIndicator()
-    LabelLang.Caption = "Раскладка: " & IIf(GetKeyboardLayout(0) = 67699721, "EN", "RU")
-End Sub
+    Dim i As Integer, j As Integer, k As Integer
+    Dim hasNum As Boolean, hasUpper As Boolean, hasLower As Boolean
+
+    Dim complexityLvl As Integer: complexityLvl = 0
+    
+
+    'see if there is a number in the password
+    'NOTE: the following For loops uses the ASCII values for numbers and letters.
+    For k = 33 To 47
+        If (InStr(1, psw, Chr(k))) Then
+            complexityLvl = complexityLvl + 1
+            Exit For
+        End If
+    Next k
+    
+    For k = 58 To 64
+        If (InStr(1, psw, Chr(k))) Then
+            complexityLvl = complexityLvl + 1
+            Exit For
+        End If
+    Next k
+    
+    For k = 48 To 57
+        If (InStr(1, psw, Chr(k))) Then
+            complexityLvl = complexityLvl + 1
+            Exit For
+        End If
+    Next k
+
+    'See if there is an upper case
+    For i = 65 To 90
+        If (InStr(1, psw, Chr(i))) Then
+            complexityLvl = complexityLvl + 1
+            Exit For
+        End If
+    Next i
+
+    'See if there is a lower case
+    For j = 97 To 122
+        If (InStr(1, psw, Chr(j))) Then
+            complexityLvl = complexityLvl + 1
+            Exit For
+        End If
+    Next j
+    
+    If (Len(psw) < minPassLen) Then
+        complexityLvl = 0
+    End If
+    
+    If complexityLvl < 3 Then
+       passwordComplexityTest = False
+    Else
+       passwordComplexityTest = True
+    End If
+End Function
 
 
 Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
     updateLangIndicator
+    LabelMsg.Caption = ""
 End Sub
 
 Private Sub Form_KeyUp(KeyCode As Integer, Shift As Integer)
     updateLangIndicator
 End Sub
 
-Private Sub Form_Load()
-    updateLangIndicator
+Private Sub updateLangIndicator()
+    LabelLang.Caption = IIf(GetKeyboardLayout(0) = 67699721, "EN", "RU")
 End Sub
 
+Private Sub LabelError_Click()
+
+End Sub
