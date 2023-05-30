@@ -1,7 +1,7 @@
 VERSION 5.00
 Begin VB.Form Form1 
    BorderStyle     =   1  'Fixed Single
-   ClientHeight    =   5160
+   ClientHeight    =   6270
    ClientLeft      =   15
    ClientTop       =   15
    ClientWidth     =   4530
@@ -12,14 +12,22 @@ Begin VB.Form Form1
    MaxButton       =   0   'False
    MinButton       =   0   'False
    Moveable        =   0   'False
-   ScaleHeight     =   5160
+   ScaleHeight     =   6270
    ScaleWidth      =   4530
    StartUpPosition =   2  'CenterScreen
+   Begin VB.CommandButton btnReboot 
+      Caption         =   "ÏÅÐÅÇÀÃÐÓÇÊÀ"
+      Height          =   615
+      Left            =   360
+      TabIndex        =   10
+      Top             =   3960
+      Width           =   3855
+   End
    Begin VB.Frame Frame1 
       Height          =   855
       Left            =   360
       TabIndex        =   8
-      Top             =   4080
+      Top             =   4680
       Width           =   3855
       Begin VB.Label Label1 
          Caption         =   "..."
@@ -58,7 +66,7 @@ Begin VB.Form Form1
       Enabled         =   0   'False
       Interval        =   1000
       Left            =   360
-      Top             =   4920
+      Top             =   5640
    End
    Begin VB.CommandButton btnUnlock 
       Caption         =   "ÐÀÇÁËÎÊÈÐÎÂÀÒÜ"
@@ -129,6 +137,14 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
 
+Private Sub btnReboot_Click()
+    If (vbYes = MsgBox("Âûïîëíèòü ïåðåçàãðóçêó?", vbYesNo + vbQuestion + vbDefaultButton2)) Then
+        On Error Resume Next
+        Shell "shutdown /r /f /t 0"
+        On Error GoTo 0
+    End If
+End Sub
+
 Private Sub Form_Load()
     load_Config
     gTimeout = gConfig.timeout_FirstLock
@@ -147,7 +163,9 @@ End Sub
 
 Private Sub btnLock_Click()
     gTimeout = 0
-    Shell "taskkill /f /im explorer.exe"
+    On Error Resume Next
+        Shell "taskkill /f /im explorer.exe"
+    On Error GoTo 0
 End Sub
 
 Private Sub btnChangePassword_Click()
@@ -158,7 +176,6 @@ Private Sub btnLogoff_Click()
     If (logOn) Then
         On Error Resume Next
         Shell "shutdown /l /f"
-        Shell "LOGOFF"
         On Error GoTo 0
     End If
 End Sub
