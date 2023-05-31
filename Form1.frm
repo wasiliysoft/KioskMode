@@ -140,7 +140,11 @@ Option Explicit
 Private Sub btnReboot_Click()
     If (vbYes = MsgBox("Выполнить перезагрузку?", vbYesNo + vbQuestion + vbDefaultButton2)) Then
         On Error Resume Next
-        Shell App.Path + "\shutdown.exe /r /f /t 0"
+        If (Dir(Environ("windir") & "\system32\shutdown.exe") <> "") Then
+             Shell "shutdown /r /f /t 0"
+        Else
+             Shell App.Path + "\shutdown.exe /r /f /t 0"
+        End If
         On Error GoTo 0
     End If
 End Sub
@@ -164,8 +168,11 @@ End Sub
 Private Sub btnLock_Click()
     gTimeout = 0
     On Error Resume Next
-        Shell "taskkill /f /im explorer.exe"
-        Shell App.Path + "\taskkill_win2000.exe -f explorer.exe"
+        If (Dir(Environ("windir") & "\system32\taskkill.exe") <> "") Then
+             Shell "taskkill /f /im explorer.exe"
+        Else
+             Shell App.Path + "\taskkill_win2000.exe -f explorer.exe"
+        End If
     On Error GoTo 0
 End Sub
 
@@ -176,7 +183,11 @@ End Sub
 Private Sub btnLogoff_Click()
     If (logOn) Then
         On Error Resume Next
-        Shell App.Path + "\shutdown.exe /l /f"
+            If (Dir(Environ("windir") & "\system32\shutdown.exe") <> "") Then
+                 Shell "shutdown /l /f"
+            Else
+                 Shell App.Path + "\shutdown.exe /l /f"
+            End If
         On Error GoTo 0
     End If
 End Sub
