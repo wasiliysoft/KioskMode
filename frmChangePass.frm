@@ -2,19 +2,67 @@ VERSION 5.00
 Begin VB.Form frmChangePass 
    BorderStyle     =   3  'Fixed Dialog
    Caption         =   "Настройки"
-   ClientHeight    =   5865
+   ClientHeight    =   7500
    ClientLeft      =   2835
    ClientTop       =   3480
-   ClientWidth     =   8700
+   ClientWidth     =   8730
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   3465.234
+   ScaleHeight     =   4431.245
    ScaleMode       =   0  'User
-   ScaleWidth      =   8168.828
+   ScaleWidth      =   8196.996
    ShowInTaskbar   =   0   'False
    StartUpPosition =   2  'CenterScreen
+   Begin VB.Frame Frame3 
+      Caption         =   "О программе"
+      Height          =   2175
+      Left            =   360
+      TabIndex        =   13
+      Top             =   5040
+      Width           =   4695
+      Begin VB.Label LabelVersion 
+         Caption         =   "Версия:"
+         Height          =   255
+         Left            =   240
+         TabIndex        =   18
+         Top             =   1800
+         Width           =   1575
+      End
+      Begin VB.Label Label4 
+         Caption         =   "2023 г."
+         Height          =   255
+         Left            =   240
+         TabIndex        =   17
+         Top             =   1440
+         Width           =   855
+      End
+      Begin VB.Label Label3 
+         Caption         =   "Васильченко Виталий Юрьевич"
+         Height          =   375
+         Left            =   240
+         TabIndex        =   16
+         Top             =   1080
+         Width           =   3015
+      End
+      Begin VB.Label Label2 
+         Caption         =   "Служба корпоративной защиты"
+         Height          =   375
+         Left            =   240
+         TabIndex        =   15
+         Top             =   720
+         Width           =   3135
+      End
+      Begin VB.Label Label1 
+         Caption         =   "ООО ""Газпром трансгаз Екатеринбург"""
+         Height          =   375
+         Left            =   240
+         TabIndex        =   14
+         Top             =   360
+         Width           =   3495
+      End
+   End
    Begin VB.Frame Frame2 
       Caption         =   "Настройка таймаутов"
       Height          =   1935
@@ -197,9 +245,9 @@ Begin VB.Form frmChangePass
    Begin VB.CommandButton cmdOK 
       Caption         =   "СОХРАНИТЬ"
       Height          =   495
-      Left            =   6360
+      Left            =   6240
       TabIndex        =   5
-      Top             =   5160
+      Top             =   6720
       Width           =   2100
    End
    Begin VB.Label LabelMsg 
@@ -231,7 +279,7 @@ Const minPassLen = 10
 
 Private Sub Form_Load()
     updateLangIndicator
-    
+    LabelVersion.Caption = "Версия: " & App.Major & "." & App.Minor & "." & App.Revision
     txtFirstLock.Text = gConfig.timeout_FirstLock
     txtReLock.Text = gConfig.timeout_ReLock
 End Sub
@@ -336,6 +384,3 @@ Private Sub updateLangIndicator()
     LabelLang.Caption = IIf(GetKeyboardLayout(0) = 67699721, "EN", "RU")
 End Sub
 
-Private Sub LabelError_Click()
-
-End Sub
