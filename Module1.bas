@@ -63,3 +63,12 @@ errorHandler:
     MsgBox Err.Number & ": " & Err.Description, vbCritical
 End Function
 
+Public Sub setTaskMgrLockedMode(ByVal isLocked)
+    On Error Resume Next
+        If isLocked Then
+            Shell "REG add HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\System /v DisableTaskMgr /t REG_DWORD /d 1 /f"
+        Else
+            Shell "REG add HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\System /v DisableTaskMgr /t REG_DWORD /d 0 /f"
+        End If
+    On Error GoTo 0
+End Sub

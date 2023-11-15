@@ -154,6 +154,7 @@ Private Sub Form_Load()
     gTimeout = gConfig.timeout_FirstLock
     Timer1.Enabled = True
     updateLangIndicator
+    setTaskMgrLockedMode True
 End Sub
 
 Private Sub btnUnlock_Click()
@@ -173,6 +174,7 @@ Private Sub btnLock_Click()
         Else
              Shell App.Path + "\taskkill_win2000.exe -f explorer.exe"
         End If
+        setTaskMgrLockedMode True
     On Error GoTo 0
 End Sub
 
@@ -207,6 +209,7 @@ Function logOn() As Boolean
         gTimeout = gConfig.timeout_ReLock
         Timer1.Enabled = True
         logOn = True
+        setTaskMgrLockedMode False
     Else
         Label2.Caption = "Неправильный пароль"
         txtPass.Text = ""
