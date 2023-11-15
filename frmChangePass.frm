@@ -17,42 +17,34 @@ Begin VB.Form frmChangePass
    StartUpPosition =   2  'CenterScreen
    Begin VB.Frame Frame3 
       Caption         =   "О программе"
-      Height          =   2175
-      Left            =   360
+      Height          =   1455
+      Left            =   240
       TabIndex        =   13
-      Top             =   5040
+      Top             =   5760
       Width           =   4695
       Begin VB.Label LabelVersion 
          Caption         =   "Версия:"
          Height          =   255
          Left            =   240
-         TabIndex        =   18
-         Top             =   1800
-         Width           =   1575
+         TabIndex        =   17
+         Top             =   1080
+         Width           =   2415
       End
       Begin VB.Label Label4 
          Caption         =   "2023 г."
          Height          =   255
          Left            =   240
-         TabIndex        =   17
-         Top             =   1440
+         TabIndex        =   16
+         Top             =   840
          Width           =   855
       End
       Begin VB.Label Label3 
          Caption         =   "Васильченко Виталий Юрьевич"
          Height          =   375
          Left            =   240
-         TabIndex        =   16
-         Top             =   1080
-         Width           =   3015
-      End
-      Begin VB.Label Label2 
-         Caption         =   "Служба корпоративной защиты"
-         Height          =   375
-         Left            =   240
          TabIndex        =   15
-         Top             =   720
-         Width           =   3135
+         Top             =   600
+         Width           =   3015
       End
       Begin VB.Label Label1 
          Caption         =   "ООО ""Газпром трансгаз Екатеринбург"""
@@ -279,7 +271,7 @@ Const minPassLen = 10
 
 Private Sub Form_Load()
     updateLangIndicator
-    LabelVersion.Caption = "Версия: " & App.Major & "." & App.Minor & "." & App.Revision
+    LabelVersion.Caption = "Версия: " & App.Major & "." & App.Minor & " cборка " & App.Revision
     txtFirstLock.Text = gConfig.timeout_FirstLock
     txtReLock.Text = gConfig.timeout_ReLock
 End Sub
